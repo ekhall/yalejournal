@@ -1,0 +1,29 @@
+<h1>Listing suggests</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Article</th>
+      <th>User</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @suggests.each do |suggest| %>
+      <tr>
+        <td><%= suggest.article %></td>
+        <td><%= suggest.user %></td>
+        <td><%= link_to 'Show', suggest %></td>
+        <td><%= link_to 'Edit', edit_suggest_path(suggest) %></td>
+        <td><%= link_to 'Destroy', suggest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Suggest', new_suggest_path %>

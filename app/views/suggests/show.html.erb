@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Article:</strong>
+  <%= @suggest.article %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @suggest.user %>
+</p>
+
+<%= link_to 'Edit', edit_suggest_path(@suggest) %> |
+<%= link_to 'Back', suggests_path %>

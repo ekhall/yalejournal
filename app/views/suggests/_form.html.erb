@@ -1,0 +1,25 @@
+<%= form_for(@suggest) do |f| %>
+  <% if @suggest.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@suggest.errors.count, "error") %> prohibited this suggest from being saved:</h2>
+
+      <ul>
+      <% @suggest.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :article %><br>
+    <%= f.text_field :article %>
+  </div>
+  <div class="field">
+    <%= f.label :user %><br>
+    <%= f.text_field :user %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
