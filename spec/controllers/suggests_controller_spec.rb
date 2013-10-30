@@ -23,10 +23,10 @@ describe SuggestsController do
   # This should return the minimal set of attributes required to create a valid
   # Suggest. As you add validations to Suggest, be sure to
   # adjust the attributes here as well.
-  @article  = FactoryGirl.create(:article) 
-  @user     = FactoryGirl.create(:user) 
-  #let(:valid_attributes) { { "article" => "" } }
-  let(:valid_attributes) { { article: @article, user: @user } }
+  let(:article) { FactoryGirl.create(:article) }
+  let(:user) { FactoryGirl.create(:user) }
+
+  let(:valid_attributes) { { "article" => article, "user" => user } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
