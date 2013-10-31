@@ -1,0 +1,38 @@
+#!/usr/bin/env ruby
+
+require 'benchmark'
+require 'socket'
+require 'colorize'
+
+ENV['RAILS_ENV'] = 'test'
+
+rails_boot = Benchmark.measure {
+  require './config/application'
+}
+puts "Rails loaded after #{rails_boot}"
+
+server = UNIXServer.new('rspec.sock')
+
+parent_process_pid = Process.pid
+at_exit {
+  File.unlink('rspec.sock') if Process.pid == parent_process_pid
+}
+
+trap('INT') { exit }
+
+loop do
+  client = server.accept
+  test_file = client.read
+
+  pid = fork do
+    puts "\e[H\e[2J"
+    print "#{Time.now.strftime('%m/%d/%y %H:%M:%S')}".red
+    test_run = Benchmark.measure {
+      system "zeus test #{test_file}"
+    }
+    print " Time: #{test_run}".blue
+  end
+
+  Process.wait(pid)
+  client.close
+end

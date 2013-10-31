@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+
+require 'socket'
+
+test_file = ARGV[0]
+
+socket = UNIXSocket.new('rspec.sock')
+
+socket.write(test_file)
+socket.close_write
+
+#puts socket.read

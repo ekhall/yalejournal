@@ -15,6 +15,7 @@ gem 'annotate'
 gem 'bcrypt-ruby', '~> 3.0.0'
 
 group :test, :development do
+  gem 'zeus'
   gem 'launchy'
   gem 'rspec-rails'
   gem 'rspec-expectations'
