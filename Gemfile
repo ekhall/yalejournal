@@ -20,7 +20,6 @@ group :test, :development do
   gem 'rspec-expectations'
   gem 'shoulda-matchers'
   gem 'capybara'
-  gem 'guard-rspec', require: false
   gem 'factory_girl_rails', :require => false
   gem 'database_cleaner', github: 'bmabey/database_cleaner'
 end
