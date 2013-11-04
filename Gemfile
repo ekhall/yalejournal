@@ -13,9 +13,11 @@ gem 'jbuilder', '~> 1.2'
 gem 'bootstrap-sass-rails'
 gem 'annotate'
 gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'haml'
 
 group :test, :development do
   gem 'zeus'
+  gem 'machinist'
   gem 'launchy'
   gem 'rspec-rails'
   gem 'rspec-expectations'

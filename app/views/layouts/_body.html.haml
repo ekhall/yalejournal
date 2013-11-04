@@ -1,0 +1,10 @@
+
+-if full_title(yield(:title)).include? 'Home'
+  .well.hero-unit.span6
+    = yield
+-else
+  .well.container-fluid
+    -flash.each do |key, value|
+      .alert{class: "alert-#{key}"} 
+        =value
+    = yield

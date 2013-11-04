@@ -62,6 +62,8 @@ GEM
     factory_girl_rails (4.2.1)
       factory_girl (~> 4.2.0)
       railties (>= 3.0.0)
+    haml (4.0.3)
+      tilt
     hike (1.2.3)
     i18n (0.6.5)
     jbuilder (1.5.2)
@@ -73,6 +75,7 @@ GEM
     json (1.8.1)
     launchy (2.3.0)
       addressable (~> 2.3)
+    machinist (2.0)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -165,9 +168,11 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   database_cleaner!
   factory_girl_rails
+  haml
   jbuilder (~> 1.2)
   jquery-rails
   launchy
+  machinist
   pg
   puma
   rails (= 4.0.0)

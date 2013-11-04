@@ -1,5 +1,8 @@
 Yalejournal::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
+  #Machinist.configure do |c|
+  #  c.cache_objects = false
+  #end
 
   # The test environment is used exclusively to run your application's
   # test suite. You never need to work with it otherwise. Remember that
