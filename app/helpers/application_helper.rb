@@ -28,6 +28,22 @@ module ApplicationHelper
       email.gsub("@", " at ").gsub(".", " dot ")
   end
 
+  def markdown(content)
+    @markdown ||= Redcarpet::Markdown.new(ProtocolMarkdown, {
+      autolink: true, space_after_headers: true,
+      disable_indented_code_blocks: true,
+      superscript: true, highlight: true, footnotes: true
+    })
+    @markdown.render(content)
+  end
+
+  class ProtocolMarkdown < Redcarpet::Render::HTML
+    def preprocess(content)
+      content.gsub!(/\[pmid (\d+)\]/) { |m| Protocol::link_to_markdown($1) }
+      content
+    end
+  end
+
 end
 
 

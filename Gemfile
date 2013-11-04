@@ -14,6 +14,7 @@ gem 'bootstrap-sass-rails'
 gem 'annotate'
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'haml'
+gem 'redcarpet'
 
 group :test, :development do
   gem 'zeus'

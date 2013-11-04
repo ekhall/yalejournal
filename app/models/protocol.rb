@@ -34,4 +34,8 @@ class Protocol < ActiveRecord::Base
   validates :excluded_patients, presence: true
   validates :definitions, presence: true
   validates :references, presence: true
+
+  def self.link_to_markdown(pmid)
+    "[[Reference]](http://www.ncbi.nlm.nih.gov/pubmed/#{pmid})"
+  end
 end

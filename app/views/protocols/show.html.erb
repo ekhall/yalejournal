@@ -13,16 +13,16 @@
       decision_tree_support medical_interventions surgical_considerations
       adl_recommendations special_considerations plausible_outcomes references}.each do |field| %>
         <tr>
-          <td class="span2">
+          <td class="span1">
             <%= proper_name(field.to_sym) %>
           </td>
           <% if @protocol[field].blank? %>
-            <td class="span10">
+            <td class="span11">
               <i>This Field is Empty</i>
             </td>
           <% else %>
-            <td class="span10">
-              <%= simple_format(@protocol[field]) %>
+            <td class="span11">
+              <%= markdown(@protocol[field]).html_safe %>
             </td>
           <% end %>
         </tr>
