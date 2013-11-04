@@ -10,7 +10,7 @@ class ProtocolsController < ApplicationController
   # GET /protocols/1
   # GET /protocols/1.json
   def show
-    @protocol = [Protocol.find(params[:id])]
+    @protocol = Protocol.find(params[:id])
   end
 
   # GET /protocols/new

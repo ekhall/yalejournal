@@ -1,4 +1,35 @@
 <p id="notice"><%= notice %></p>
 
+<div class="page-header center">
+  <h1><%= "#{@protocol.title}" %></h1><br/>
+</div>
+
+<table class="table">
+  <body>
+    <div class="row-fluid">
+      <% %w{objective included_patients excluded_patients definitions etiology 
+      natural_history risk_stratification outcomes
+      cp_ros cp_physical_exam cp_diagnostic_testing cp_genotyping
+      decision_tree_support medical_interventions surgical_considerations
+      adl_recommendations special_considerations plausible_outcomes references}.each do |field| %>
+        <tr>
+          <td class="span2">
+            <%= proper_name(field.to_sym) %>
+          </td>
+          <% if @protocol[field].blank? %>
+            <td class="span10">
+              <i>This Field is Empty</i>
+            </td>
+          <% else %>
+            <td class="span10">
+              <%= simple_format(@protocol[field]) %>
+            </td>
+          <% end %>
+        </tr>
+      <% end %>
+    </div>
+  </body>
+</table>
+
 <%= link_to 'Edit', edit_protocol_path(@protocol) %> |
 <%= link_to 'Back', protocols_path %>
