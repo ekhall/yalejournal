@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131030180358) do
+ActiveRecord::Schema.define(version: 20131104181655) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,31 @@ ActiveRecord::Schema.define(version: 20131030180358) do
     t.date     "presentation_date"
     t.date     "publication_date"
     t.text     "presentation_comments"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "protocols", force: true do |t|
+    t.string   "title"
+    t.text     "objective"
+    t.text     "included_patients"
+    t.text     "excluded_patients"
+    t.text     "definitions"
+    t.text     "etiology"
+    t.text     "natural_history"
+    t.text     "risk_stratification"
+    t.text     "outcomes"
+    t.text     "cp_ros"
+    t.text     "cp_physical_exam"
+    t.text     "cp_diagnostic_testing"
+    t.text     "cp_genotyping"
+    t.text     "decision_tree_support"
+    t.text     "medical_interventions"
+    t.text     "surgical_considerations"
+    t.text     "adl_recommendations"
+    t.text     "special_considerations"
+    t.text     "plausible_outcomes"
+    t.text     "references"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

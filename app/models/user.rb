@@ -10,6 +10,8 @@
 #  admin              :boolean
 #  created_at         :datetime
 #  updated_at         :datetime
+#  password_digest    :string(255)
+#  remember_token     :string(255)
 #
 
 class User < ActiveRecord::Base

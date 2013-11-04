@@ -3,6 +3,7 @@ Yalejournal::Application.routes.draw do
   resources :users
   resources :suggests
   resources :articles
+  resources :protocols
   resources :sessions, only: [:new, :create, :destroy]
   match '/signup',    to: 'users#new',        via: :get
   match '/signin',    to: 'sessions#new',     via: :get
