@@ -21,9 +21,7 @@
               <i>This Field is Empty</i>
             </td>
           <% else %>
-            <td class="span11">
-              <%= markdown(@protocol[field]).html_safe %>
-            </td>
+            <td class="span11"><%= markdown(@protocol[field]).html_safe %></td>
           <% end %>
         </tr>
       <% end %>
