@@ -1,6 +1,6 @@
 <h2>header</h2>
 <%if signed_in? %>
-  Signed in as <%= @user.email %>
+  Signed in as <%= current_user.email %>
   <a class="btn" href=<%= signout_path %> >Sign Out</a>
 <% else %>
   <a class="btn btn-inverse" href=<%= signin_path %> >

@@ -1,0 +1,40 @@
+<%= form_for(@protocol, html: { class: "well form-horizontal"}) do |f| %>
+  <% if @protocol.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@protocol.errors.count, "error") %> prohibited this protocol from being saved:</h2>
+
+      <ul>
+      <% @protocol.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <table class="table table-bordered table-striped">
+    <% %w{title}.each do |field| %>
+      <th>
+        <%= proper_name(field.to_sym) %><br/>
+        <%= f.text_field field, class: "input-medium" %>
+      </th>
+    <%end%>
+    <tbody>
+    <% %w{objective included_patients excluded_patients definitions etiology 
+    natural_history risk_stratification outcomes
+    cp_ros cp_physical_exam cp_diagnostic_testing cp_genotyping
+    decision_tree_support medical_interventions surgical_considerations
+    adl_recommendations special_considerations plausible_outcomes references}.each do |field| %>
+      <tr>
+        <td colspan=5>
+          <%= proper_name(field.to_sym) %><br/>
+          <%= f.text_area field, class: "span12", rows: 5 %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

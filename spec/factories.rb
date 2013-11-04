@@ -21,6 +21,5 @@ FactoryGirl.define do
     sequence(:included_patients)  { |n| "Included Patients #{n}" }
     sequence(:excluded_patients)  { |n| "Excluded Patients #{n}" }
     sequence(:definitions)        { |n| "Definitions #{n}" }
-    sequence(:references)         { |n| "References #{n}" }
   end
 end
